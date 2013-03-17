@@ -1,0 +1,23 @@
+{
+    "name": "toddish/verify",
+    "description": "",
+    "authors": [
+        {
+            "name": "Todd Francis",
+            "email": "todd@toddish.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Toddish\\Verify": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
