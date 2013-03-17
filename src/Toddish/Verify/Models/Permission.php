@@ -2,8 +2,15 @@
 
 namespace Toddish\Verify\Models;
 
-class Permission
+class Permission extends BaseModel
 {
+	/**
+	 * The table associated with the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'permissions';
+
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -18,7 +25,7 @@ class Permission
 	 */
 	public function roles()
 	{
-		return $this->has_many_and_belongs_to(
+		return $this->belongsToMany(
 				'Toddish\Verify\Models\Role',
 				$this->prefix.'permission_role'
 			)
