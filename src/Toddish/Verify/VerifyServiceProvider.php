@@ -1,6 +1,8 @@
 <?php namespace Toddish\Verify;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Hashing\BcryptHasher;
+use Illuminate\Auth\Guard;
 
 class VerifyServiceProvider extends ServiceProvider {
 
@@ -19,6 +21,17 @@ class VerifyServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('toddish/verify');
+
+		\Auth::extend('verify', function()
+		{
+			return new Guard(
+				new VerifyUserProvider(
+					new BcryptHasher,
+					\Config::get('auth.model')
+				),
+				\App::make('session')
+			);
+		});
 	}
 
 	/**
