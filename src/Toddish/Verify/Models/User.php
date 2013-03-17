@@ -45,6 +45,20 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
+     * Salts and saves the password
+     *
+     * @param string $password
+     */
+    public function setPasswordAttribute($password)
+    {
+        $salt = md5(\Str::random(64) . time());
+        $hashed = \Hash::make($salt . $password);
+
+        $this->attributes['password'] = $hashed;
+        $this->attributes['salt'] = $salt;
+    }
+
+    /**
      * Get the unique identifier for the user.
      *
      * @return mixed
