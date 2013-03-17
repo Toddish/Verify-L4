@@ -1,10 +1,12 @@
 {
     "name": "toddish/verify",
-    "description": "",
+    "description": "A simple authentication bundle for Laravel. It features roles, permissions, password salting and is fully extendable.",
+    "license": "MIT",
     "authors": [
         {
             "name": "Todd Francis",
-            "email": "todd@toddish.co.uk"
+            "email": "todd@toddish.co.uk",
+            "homepage": "http://toddish.co.uk"
         }
     ],
     "require": {
