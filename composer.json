@@ -1,6 +1,6 @@
 {
     "name": "toddish/verify",
-    "description": "A simple authentication bundle for Laravel. It features roles, permissions, password salting and is fully extendable.",
+    "description": "A simple authentication bundle for Laravel 4. It features roles, permissions, password salting and is fully extendable.",
     "license": "MIT",
     "authors": [
         {
