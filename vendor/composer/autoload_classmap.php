@@ -6,4 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'VerifyInit' => $baseDir . '/src/migrations/2013_03_17_131246_verify_init.php',
 );
