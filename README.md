@@ -43,6 +43,19 @@ Then change your Auth driver to ``'verify'`` in ``app/config/auth.php``:
 'driver' => 'verify',
 ```
 
+You may also change the ```'model'``` value to ```'Toddish\Verify\Models\User'``` if you want to be able to load Verify's User model when using ```Auth::user()```.
+
+Alternatively, you can simply create your own User model, and extend Verify's:
+
+```php
+use Toddish\Verify\Models\User as VerifyUser;
+
+class User extends VerifyUser
+{
+    // Code
+}
+```
+
 ### Publish the config
 
 Run this on the command line from the root of your project:
