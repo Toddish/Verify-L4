@@ -1,1 +1,2 @@
-vendor/*
+/vendor
+.DS_Store
