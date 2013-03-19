@@ -1,5 +1,4 @@
 <?php
-
 return array(
 
     // The User mode to use

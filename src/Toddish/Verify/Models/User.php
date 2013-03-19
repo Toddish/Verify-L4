@@ -1,5 +1,4 @@
 <?php
-
 namespace Toddish\Verify\Models;
 
 use Illuminate\Auth\UserInterface;

@@ -1,5 +1,4 @@
 <?php
-
 namespace Toddish\Verify\Models;
 
 class BaseModel extends \Eloquent

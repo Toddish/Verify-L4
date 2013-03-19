@@ -1,5 +1,4 @@
 <?php
-
 namespace Toddish\Verify\Models;
 
 class Role extends BaseModel
