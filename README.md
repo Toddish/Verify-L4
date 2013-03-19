@@ -29,15 +29,19 @@ Now, run a composer update on the command line from the root of your project:
 
 Add the Verify Service Provider to your config in ``app/config/app.php``:
 
-	'providers' => array(
-		'Toddish\Verify\VerifyServiceProvider'
-	),
+```php
+'providers' => array(
+	'Toddish\Verify\VerifyServiceProvider'
+),
+```
 
 ### Change the driver
 
 Then change your Auth driver to ``'verify'`` in ``app/config/auth.php``:
 
-    'driver' => 'verify',
+```php
+'driver' => 'verify',
+```
 
 ### Publish the config
 
@@ -47,13 +51,13 @@ Run this on the command line from the root of your project:
 
 This will publish Verify's config to ``app/config/packages/toddish/verify/``.
 
-You may also want to change the ``'db_prefix'`` value if you want a prefix on Verify's databasse tables.
+You may also want to change the ``'db_prefix'`` value if you want a prefix on Verify's database tables.
 
 ### Migration
 
-Now migrate the database for Verify. Run this on the command line from the root of your project:
+Now migrate the database tables for Verify. Run this on the command line from the root of your project:
 
-    php artisan migrate --pacakge="toddish/verify"
+    php artisan migrate --package="toddish/verify"
 
 You should now have all the tables imported, complete with a sample user, called **admin**, with a password of **password**.
 
@@ -80,7 +84,9 @@ The relationships are as follows:
 
 Relationships are handled via the Eloquent ORM, too:
 
-    $role->permissions()->sync(array($permission->id, $permission2->id));
+```php
+$role->permissions()->sync(array($permission->id, $permission2->id));
+```
 
 More information on relationships can be found in the [Laravel 4 Eloquent docs](http://four.laravel.com/docs/eloquent).
 
