@@ -17,9 +17,11 @@ A simple role/permission authentication package for Laravel 4
 
 Add Verify to your composer.json file:
 
-    "require": {
-    	"toddish/verify": "~1"
-    }
+```
+"require": {
+	"toddish/verify": "~1"
+}
+```
 
 Now, run a composer update on the command line from the root of your project:
 
