@@ -297,4 +297,15 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     {
         return $query->where('disabled', '=', 1);
     }
+
+    /**
+     * Enabled scope
+     *
+     * @param  object $query
+     * @return object
+     */
+    public function scopeEnabled($query)
+    {
+        return $query->where('disabled', '=', 0);
+    }
 }
