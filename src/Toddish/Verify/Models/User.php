@@ -242,4 +242,15 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
         return $to_check;
     }
+
+    /**
+     * Verified scope
+     *
+     * @param  object $query
+     * @return object
+     */
+    public function scopeVerified($query)
+    {
+        return $query->where('verified', '=', 1);
+    }
 }
