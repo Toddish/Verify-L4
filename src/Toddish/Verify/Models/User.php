@@ -242,4 +242,70 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
         return $to_check;
     }
+
+    /**
+     * Verified scope
+     *
+     * @param  object $query
+     * @return object
+     */
+    public function scopeVerified($query)
+    {
+        return $query->where('verified', '=', 1);
+    }
+
+    /**
+     * Unverified scope
+     *
+     * @param  object $query
+     * @return object
+     */
+    public function scopeUnverified($query)
+    {
+        return $query->where('verified', '=', 0);
+    }
+
+    /**
+     * Deleted scope
+     *
+     * @param  object $query
+     * @return object
+     */
+    public function scopeDeleted($query)
+    {
+        return $query->where('deleted', '=', 1);
+    }
+
+    /**
+     * Active scope
+     *
+     * @param  object $query
+     * @return object
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('deleted', '=', 0);
+    }
+
+    /**
+     * Disabled scope
+     *
+     * @param  object $query
+     * @return object
+     */
+    public function scopeDisabled($query)
+    {
+        return $query->where('disabled', '=', 1);
+    }
+
+    /**
+     * Enabled scope
+     *
+     * @param  object $query
+     * @return object
+     */
+    public function scopeEnabled($query)
+    {
+        return $query->where('disabled', '=', 0);
+    }
 }
