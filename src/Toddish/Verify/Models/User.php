@@ -277,6 +277,17 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
+     * Active scope
+     *
+     * @param  object $query
+     * @return object
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('deleted', '=', 0);
+    }
+
+    /**
      * Disabled scope
      *
      * @param  object $query
