@@ -22,15 +22,7 @@ class BaseModel extends \Eloquent
 
         // Set the prefix
         $this->prefix = \Config::get('verify::prefix', 'test');
-    }
 
-    /**
-     * Get the table name
-     *
-     * @return string
-     */
-    protected function getTableName()
-    {
-        return $this->prefix.parent::table();
+        $this->table = $this->prefix.$this->getTable();
     }
 }
