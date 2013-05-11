@@ -52,9 +52,9 @@ class VerifyInit extends Migration {
             $table->string('password', 60)->index();
             $table->string('salt', 32);
             $table->string('email', 255)->index();
-            $table->boolean('verified');
-            $table->boolean('disabled');
-            $table->boolean('deleted');
+            $table->boolean('verified')->default(0);
+            $table->boolean('disabled')->default(0);
+            $table->boolean('deleted')->default(0);
             $table->timestamps();
         });
 
