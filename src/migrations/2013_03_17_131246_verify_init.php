@@ -54,7 +54,7 @@ class VerifyInit extends Migration {
             $table->string('email', 255)->index();
             $table->boolean('verified')->default(0);
             $table->boolean('disabled')->default(0);
-            $table->datetime('deleted')->default(0);
+            $table->boolean('deleted')->default(0);
             $table->timestamps();
         });
 
