@@ -25,7 +25,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      *
      * @var array
      */
-    protected $fillable = array('username', 'password', 'salt', 'email', 'verified', 'deleted', 'disabled');
+    protected $fillable = array('username', 'password', 'salt', 'email', 'verified', 'deleted_at', 'disabled');
 
     /**
      * To check cache
@@ -35,6 +35,13 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      * @var object
      */
     protected $to_check_cache;
+
+    /**
+     * Soft delete
+     *
+     * @var boolean
+     */
+    protected $softDelete = true;
 
     /**
      * Roles
@@ -263,28 +270,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function scopeUnverified($query)
     {
         return $query->where('verified', '=', 0);
-    }
-
-    /**
-     * Deleted scope
-     *
-     * @param  object $query
-     * @return object
-     */
-    public function scopeDeleted($query)
-    {
-        return $query->where('deleted', '=', 1);
-    }
-
-    /**
-     * Active scope
-     *
-     * @param  object $query
-     * @return object
-     */
-    public function scopeActive($query)
-    {
-        return $query->where('deleted', '=', 0);
     }
 
     /**

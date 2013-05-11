@@ -125,7 +125,7 @@ class VerifyUserProvider implements UserProviderInterface
         }
 
         // Is the user deleted?
-        if ($user->deleted) {
+        if ($user->deleted_at !== NULL) {
             throw new UserDeletedException('User is deleted');
         }
 

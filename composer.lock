@@ -1,4 +1,8 @@
 {
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
     "hash": "a0257888ee9e6c0a315fd8201312ad3b",
     "packages": [
         {
@@ -8,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "75a8e4b985ede4db00377005a6b69746c8d87dc8"
+                "reference": "ae598ed1e33c734ed9beeb4ffd13b8f39c403b01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/75a8e4b985ede4db00377005a6b69746c8d87dc8",
-                "reference": "75a8e4b985ede4db00377005a6b69746c8d87dc8",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/ae598ed1e33c734ed9beeb4ffd13b8f39c403b01",
+                "reference": "ae598ed1e33c734ed9beeb4ffd13b8f39c403b01",
                 "shasum": ""
             },
             "require": {
@@ -21,7 +25,8 @@
             },
             "require-dev": {
                 "mockery/mockery": "0.7.2",
-                "patchwork/utf8": "1.0.*"
+                "patchwork/utf8": "1.1.*",
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "extra": {
@@ -45,7 +50,7 @@
                 }
             ],
             "description": "Various utilities and support functions.",
-            "time": "2013-03-20 01:32:32"
+            "time": "2013-05-10 04:38:58"
         }
     ],
     "packages-dev": [
