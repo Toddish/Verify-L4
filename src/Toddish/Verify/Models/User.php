@@ -37,6 +37,13 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     protected $to_check_cache;
 
     /**
+     * Soft delete
+     *
+     * @var boolean
+     */
+    protected $softDelete = true;
+
+    /**
      * Roles
      *
      * @return object
