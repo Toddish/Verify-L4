@@ -58,7 +58,7 @@ class VerifyUserProvider implements UserProviderInterface
             // Grab each val to be identifed against
             foreach (\Config::get('verify::identified_by') as $identified_by) {
                 // Create a new query for each check
-                $query = $this->createModel()->newQuery();
+                $query = $this->createModel()->newQuery()->withTrashed();
                 // Start off the query with the first identified_by value
                 $query->where($identified_by, $credentials['identifier']);
 
@@ -125,7 +125,7 @@ class VerifyUserProvider implements UserProviderInterface
         }
 
         // Is the user deleted?
-        if ($user->deleted) {
+        if ($user->deleted_at) {
             throw new UserDeletedException('User is deleted');
         }
 

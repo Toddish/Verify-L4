@@ -54,7 +54,7 @@ class VerifyInit extends Migration {
             $table->string('email', 255)->index();
             $table->boolean('verified')->default(0);
             $table->boolean('disabled')->default(0);
-            $table->boolean('deleted')->default(0);
+            $table->datetime('deleted_at');
             $table->timestamps();
         });
 
@@ -99,8 +99,7 @@ class VerifyInit extends Migration {
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             'verified' => 1,
-            'disabled' => 0,
-            'deleted' => 0
+            'disabled' => 0
         ));
 
         DB::table($prefix.'role_user')->insert(array(
