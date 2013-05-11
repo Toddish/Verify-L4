@@ -20,7 +20,7 @@ class VerifyInit extends Migration {
         $prefix = $this->prefix;
 
         // Create the permissions table
-        Schema::create($prefix.'permissions', function($table) use ($prefix)
+        Schema::create($prefix.'permissions', function($table)
         {
             $table->engine = 'InnoDB';
 
@@ -31,7 +31,7 @@ class VerifyInit extends Migration {
         });
 
         // Create the roles table
-        Schema::create($prefix.'roles', function($table) use ($prefix)
+        Schema::create($prefix.'roles', function($table)
         {
             $table->engine = 'InnoDB';
 
@@ -43,7 +43,7 @@ class VerifyInit extends Migration {
         });
 
         // Create the users table
-        Schema::create($prefix.'users', function($table) use ($prefix)
+        Schema::create($prefix.'users', function($table)
         {
             $table->engine = 'InnoDB';
 
@@ -54,7 +54,7 @@ class VerifyInit extends Migration {
             $table->string('email', 255)->index();
             $table->boolean('verified')->default(0);
             $table->boolean('disabled')->default(0);
-            $table->datetime('deleted_at');
+            $table->datetime('deleted')->default(0);
             $table->timestamps();
         });
 
@@ -99,7 +99,8 @@ class VerifyInit extends Migration {
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             'verified' => 1,
-            'disabled' => 0
+            'disabled' => 0,
+            'deleted' => 0
         ));
 
         DB::table($prefix.'role_user')->insert(array(
