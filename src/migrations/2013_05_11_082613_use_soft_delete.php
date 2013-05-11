@@ -23,7 +23,7 @@ class UseSoftDelete extends Migration {
         // Add soft delete column
         Schema::table($prefix.'users', function($table)
         {
-            $table->dateTime('deleted_at');
+            $table->dateTime('deleted_at')->nullable()->index();
         });
 
         $users = DB::table($prefix.'users')
@@ -55,7 +55,7 @@ class UseSoftDelete extends Migration {
         });
 
         $users = DB::table($prefix.'users')
-            ->where('deleted_at', '!=', '0000-00-00 00:00:0')
+            ->whereNotNull('deleted_at')
             ->update(array(
                 'deleted' => 1
             ));
