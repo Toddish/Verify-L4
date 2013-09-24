@@ -234,8 +234,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
         if(empty($this->to_check_cache))
         {
-            $to_check = new $class;
-
             $to_check = $class::with(array('roles', 'roles.permissions'))
                 ->where('id', '=', $this->attributes['id'])
                 ->first();
