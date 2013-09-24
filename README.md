@@ -10,6 +10,7 @@ A simple role/permission authentication package for Laravel 4
 * Role/permission based authentication
 * Exceptions for intelligent handling of errors
 * Configurable/extendable
+* Licensed under the MIT license
 
 ---
 
