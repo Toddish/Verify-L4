@@ -30,7 +30,7 @@ class VerifyServiceProvider extends ServiceProvider
                     new BcryptHasher,
                     \Config::get('auth.model')
                 ),
-                \App::make('session')
+                \App::make('session.store')
             );
         });
     }
