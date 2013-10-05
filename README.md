@@ -20,7 +20,7 @@ Add Verify to your composer.json file:
 
 ```
 "require": {
-	"toddish/verify": "2.0.*"
+	"toddish/verify": "2.1.*"
 }
 ```
 

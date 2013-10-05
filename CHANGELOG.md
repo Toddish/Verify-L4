@@ -2,6 +2,20 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v2.1.0
++ Updated session key to reflect Laravel core changes.
+
+### Credits
+[xLink](https://github.com/xLink) for #22.
+[pidgpowell](https://github.com/pidgpowell) for #21.
+
+## v2.0.2
++ Updated Readme to include a reference to the license.
++ Removed unecessary variable.
+
+### Credits
+[claar](https://github.com/claar) for #18.
+
 ## v2.0.1
 + Updated Readme with new version.
 
