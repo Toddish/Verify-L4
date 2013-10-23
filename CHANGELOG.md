@@ -2,6 +2,12 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v2.1.1
++ Refactored to use LSB.
+
+### Credits
+[ronaldcastillo](https://github.com/ronaldcastillo) for #23.
+
 ## v2.1.0
 + Updated session key to reflect Laravel core changes.
 
