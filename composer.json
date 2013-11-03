@@ -16,7 +16,8 @@
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/migrations",
+            "src/app/database/seeds/"
         ],
         "psr-0": {
             "Toddish\\Verify": "src/"
