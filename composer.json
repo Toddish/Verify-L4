@@ -12,12 +12,12 @@
     "keywords": ["laravel", "auth", "permissions", "roles", "verify"],
     "homepage": "http://docs.toddish.co.uk/verify-l4/",
     "require": {
-        "php": ">=5.3.0",
-        "illuminate/support": "4.0.x"
+        "php": ">=5.3.0"
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/migrations",
+            "src/app/database/seeds/"
         ],
         "psr-0": {
             "Toddish\\Verify": "src/"

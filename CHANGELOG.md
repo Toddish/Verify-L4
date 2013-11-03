@@ -2,6 +2,14 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v2.2.0
++ Moved seeding to Seeder class
++ Removed illuminate/support dependency
+
+### Credits
+[GlobeView](https://github.com/GlobeView) for #25.
+[mpemberton5](https://github.com/mpemberton5) for #24.
+
 ## v2.1.1
 + Refactored to use LSB.
 

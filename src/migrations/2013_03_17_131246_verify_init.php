@@ -83,32 +83,6 @@ class VerifyInit extends Migration {
             $table->foreign('permission_id')->references('id')->on($prefix.'permissions');
             $table->foreign('role_id')->references('id')->on($prefix.'roles');
         });
-
-        $role_id = DB::table($prefix.'roles')->insertGetId(array(
-            'name' => Config::get('verify::super_admin'),
-            'level' => 10,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-        ));
-
-        $user_id = DB::table($prefix.'users')->insertGetId(array(
-            'username' => 'admin',
-            'password' => '$2a$08$rqN6idpy0FwezH72fQcdqunbJp7GJVm8j94atsTOqCeuNvc3PzH3m',
-            'salt' => 'a227383075861e775d0af6281ea05a49',
-            'email' => 'admin@example.com',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-            'verified' => 1,
-            'disabled' => 0,
-            'deleted' => 0
-        ));
-
-        DB::table($prefix.'role_user')->insert(array(
-            'role_id' => $role_id,
-            'user_id' => $user_id,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-        ));
     }
 
     /**
@@ -124,5 +98,4 @@ class VerifyInit extends Migration {
         Schema::drop($this->prefix.'roles');
         Schema::drop($this->prefix.'permissions');
     }
-
 }

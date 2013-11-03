@@ -20,7 +20,7 @@ Add Verify to your composer.json file:
 
 ```
 "require": {
-	"toddish/verify": "2.1.*"
+	"toddish/verify": "2.2.*"
 }
 ```
 
@@ -71,9 +71,10 @@ You may also want to change the ``'db_prefix'`` value if you want a prefix on Ve
 
 ### Migration
 
-Now migrate the database tables for Verify. Run this on the command line from the root of your project:
+Now migrate the database tables for Verify. Run these on the command line from the root of your project:
 
     php artisan migrate --package="toddish/verify"
+    php artisan db:seed --class=VerifyUserSeeder
 
 You should now have all the tables imported, complete with a sample user, called **admin**, with a password of **password**.
 
