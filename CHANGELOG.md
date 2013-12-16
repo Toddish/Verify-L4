@@ -2,9 +2,15 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v2.2.1
++ Removed reliance on hard-coded primary key.
+
+### Credits
+[DyeH](https://github.com/DyeH) for #27.
+
 ## v2.2.0
-+ Moved seeding to Seeder class
-+ Removed illuminate/support dependency
++ Moved seeding to Seeder class.
++ Removed illuminate/support dependency.
 
 ### Credits
 [GlobeView](https://github.com/GlobeView) for #25.
