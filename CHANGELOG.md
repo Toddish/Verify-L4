@@ -2,6 +2,12 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v2.2.2
++ Added cascade clause for migration's foreign keys.
+
+### Credits
+[Asilbalaban](https://github.com/asilbalaban) for #29.
+
 ## v2.2.1
 + Removed reliance on hard-coded primary key.
 
