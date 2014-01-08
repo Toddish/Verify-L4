@@ -67,8 +67,8 @@ class VerifyInit extends Migration {
             $table->integer('role_id')->unsigned()->index();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on($prefix.'users')->onDelete('cascade');;
-            $table->foreign('role_id')->references('id')->on($prefix.'roles')->onDelete('cascade');;
+            $table->foreign('user_id')->references('id')->on($prefix.'users')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on($prefix.'roles')->onDelete('cascade');
         });
 
         // Create the permission/role relationship table
@@ -80,8 +80,8 @@ class VerifyInit extends Migration {
             $table->integer('role_id')->unsigned()->index();
             $table->timestamps();
 
-            $table->foreign('permission_id')->references('id')->on($prefix.'permissions')->onDelete('cascade');;
-            $table->foreign('role_id')->references('id')->on($prefix.'roles')->onDelete('cascade');;
+            $table->foreign('permission_id')->references('id')->on($prefix.'permissions')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on($prefix.'roles')->onDelete('cascade');
         });
     }
 
