@@ -2,6 +2,12 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v2.3.0
++ Added `has` method to Role class.
+
+### Credits
+[NoelDavies](https://github.com/NoelDavies) for #30.
+
 ## v2.2.2
 + Added cascade clause for migration's foreign keys.
 
