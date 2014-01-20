@@ -44,4 +44,32 @@ class Role extends BaseModel
             )
         ->withTimestamps();
     }
+
+    /**
+     * Does the role have a specific permission
+     *
+     * @param  array|string $permissions Single permission or an array of permissions
+     * @return boolean
+     */
+    public function has( $permissions )
+    {
+        $permissions = !is_array($permissions)
+            ? array($permissions)
+            : $permissions;
+
+        $valid = false;
+
+        foreach (static::permissions()->get() as $permission)
+        {
+            foreach ($permissions as $perm_to_check) {
+                if( $permission->name == $perm_to_check )
+                {
+                    $valid = true;
+                    break 1;
+                }
+            }
+        }
+
+        return $valid;
+    }
 }
