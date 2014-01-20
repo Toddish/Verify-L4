@@ -49,9 +49,10 @@ class Role extends BaseModel
      * Does the role have a specific permission
      *
      * @param  array|string $permissions Single permission or an array of permissions
+     *
      * @return boolean
      */
-    public function has( $permissions )
+    public function has($permissions)
     {
         $permissions = !is_array($permissions)
             ? array($permissions)
@@ -61,8 +62,9 @@ class Role extends BaseModel
 
         foreach (static::permissions()->get() as $permission)
         {
-            foreach ($permissions as $perm_to_check) {
-                if( $permission->name == $perm_to_check )
+            foreach ($permissions as $perm_to_check)
+            {
+                if($permission->name == $perm_to_check)
                 {
                     $valid = true;
                     break 1;
