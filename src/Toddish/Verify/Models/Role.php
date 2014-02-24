@@ -18,6 +18,15 @@ class Role extends BaseModel
     protected $fillable = array('name', 'description', 'level');
 
     /**
+     * To check cache
+     *
+     * Stores a cached user to check against
+     *
+     * @var object
+     */
+    protected $to_check_cache;
+
+    /**
      * Users
      *
      * @return object
@@ -58,9 +67,11 @@ class Role extends BaseModel
             ? array($permissions)
             : $permissions;
 
+        $to_check = $this->getToCheck();
+
         $valid = false;
 
-        foreach (static::permissions()->get() as $permission)
+        foreach ($to_check->permissions as $permission)
         {
             foreach ($permissions as $perm_to_check)
             {
@@ -73,5 +84,30 @@ class Role extends BaseModel
         }
 
         return $valid;
+    }
+
+    /**
+     * Get to check
+     *
+     * @return object
+     */
+    private function getToCheck()
+    {
+        if(empty($this->to_check_cache))
+        {
+            $key = static::getKeyName();
+
+            $to_check = static::with('permissions')
+                ->where($key, '=', $this->attributes[$key])
+                ->first();
+
+            $this->to_check_cache = $to_check;
+        }
+        else
+        {
+            $to_check = $this->to_check_cache;
+        }
+
+        return $to_check;
     }
 }
