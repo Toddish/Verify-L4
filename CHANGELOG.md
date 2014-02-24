@@ -2,6 +2,12 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v2.3.1
++ Cached permissions in Role.
+
+### Credits
+[xLink](https://github.com/xLink) for #33.
+
 ## v2.3.0
 + Added `has` method to Role class.
 
