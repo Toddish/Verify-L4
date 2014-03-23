@@ -217,6 +217,10 @@ class User extends BaseModel implements UserInterface, RemindableInterface
                 return $min < $level;
                 break;
 
+            case '!=':
+                return $role->level != $level;
+                break;
+
             default:
                 return false;
                 break;
