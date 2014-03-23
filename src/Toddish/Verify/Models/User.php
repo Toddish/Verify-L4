@@ -218,7 +218,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
                 break;
 
             case '!=':
-                return $role->level != $level;
+                return !in_array($level, $levels);
                 break;
 
             default:
