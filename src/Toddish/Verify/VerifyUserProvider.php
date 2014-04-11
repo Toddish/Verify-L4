@@ -141,7 +141,13 @@ class VerifyUserProvider implements UserProviderInterface
     {
         $class = '\\'.ltrim($this->model, '\\');
 
-        return new $class;
+        if ( is_a( $class, '\Illuminate\Support\Facades\Facade', TRUE ) ) {
+            $object = $class::getFacadeRoot();
+        } else {
+            $object = new $class;
+        }
+
+        return $object;
     }
 }
 
