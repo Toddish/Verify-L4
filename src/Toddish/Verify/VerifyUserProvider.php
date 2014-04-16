@@ -161,7 +161,7 @@ class VerifyUserProvider implements UserProviderInterface
     {
         $model = $this->createModel();
 
-        return $this->model->newQuery()
+        return $model->newQuery()
                         ->where($model->getKeyName(), $identifier)
                         ->where($model->getRememberTokenName(), $token)
                         ->first();
