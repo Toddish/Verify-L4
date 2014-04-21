@@ -2,6 +2,18 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v2.4.0
++ Added != level check
++ Added remember token methods
++ Added facade support
+
+### Credits
+A huge thanks to the following people!
+[YOzaz](https://github.com/YOzaz) for #39, #38 and a great pull request.
+[quocvu](https://github.com/quocvu) for #42.
+[Raywin88](https://github.com/Raywin88) for #36.
+[Bogardo](https://github.com/Bogardo) for #35 and a pull request.
+
 ## v2.3.1
 + Cached permissions in Role.
 
