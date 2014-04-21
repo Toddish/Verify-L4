@@ -217,6 +217,10 @@ class User extends BaseModel implements UserInterface, RemindableInterface
                 return $min < $level;
                 break;
 
+            case '!=':
+                return !in_array($level, $levels);
+                break;
+
             default:
                 return false;
                 break;
@@ -291,5 +295,36 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function scopeEnabled($query)
     {
         return $query->where('disabled', '=', 0);
+    }
+
+    /**
+     * Get the token value for the "remember me" session.
+     *
+     * @return string
+     */
+    public function getRememberToken()
+    {
+        return $this->attributes['remember_token'];
+    }
+
+    /**
+     * Set the token value for the "remember me" session.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setRememberToken($value)
+    {
+        $this->attributes['remember_token'] = $value;
+    }
+
+    /**
+     * Get the column name for the "remember me" token.
+     *
+     * @return string
+     */
+    public function getRememberTokenName()
+    {
+        return 'remember_token';
     }
 }
