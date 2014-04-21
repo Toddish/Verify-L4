@@ -176,7 +176,7 @@ class VerifyUserProvider implements UserProviderInterface
      */
     public function updateRememberToken(UserInterface $user, $token)
     {
-        $user->setAttribute($user->getRememberTokenName(), $token);
+        $user->setRememberToken($token);
 
         $user->save();
     }
