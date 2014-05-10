@@ -2,6 +2,13 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v2.4.1
++ Removes thrid parameter for PHP <= 5.3.8
+
+### Credits
+[ivannovak](https://github.com/ivannovak) for #44.  
+[YOzaz](https://github.com/YOzaz) for #45/pull request.  
+
 ## v2.4.0
 + Added != level check
 + Added remember token methods
