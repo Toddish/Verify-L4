@@ -8,10 +8,10 @@ If there are no installation instructions provided, assume a ```composer update`
 + Added facade support
 
 ### Credits
-A huge thanks to the following people!
-[YOzaz](https://github.com/YOzaz) for #39, #38 and a great pull request.
-[quocvu](https://github.com/quocvu) for #42.
-[Raywin88](https://github.com/Raywin88) for #36.
+A huge thanks to the following people!  
+[YOzaz](https://github.com/YOzaz) for #39, #38 and a great pull request.  
+[quocvu](https://github.com/quocvu) for #42.  
+[Raywin88](https://github.com/Raywin88) for #36.  
 [Bogardo](https://github.com/Bogardo) for #35 and a pull request.
 
 ## v2.3.1
@@ -43,7 +43,7 @@ A huge thanks to the following people!
 + Removed illuminate/support dependency.
 
 ### Credits
-[GlobeView](https://github.com/GlobeView) for #25.
+[GlobeView](https://github.com/GlobeView) for #25.  
 [mpemberton5](https://github.com/mpemberton5) for #24.
 
 ## v2.1.1
@@ -56,7 +56,7 @@ A huge thanks to the following people!
 + Updated session key to reflect Laravel core changes.
 
 ### Credits
-[xLink](https://github.com/xLink) for #22.
+[xLink](https://github.com/xLink) for #22.  
 [pidgpowell](https://github.com/pidgpowell) for #21.
 
 ## v2.0.2
@@ -74,8 +74,8 @@ A huge thanks to the following people!
 + Removed deleted scope methods - use ->trashed() instead.
 
 ### Credits
-[senei](https://github.com/senei) for #8.
-[driesvints](https://github.com/driesvints) for #6.
+[senei](https://github.com/senei) for #8.  
+[driesvints](https://github.com/driesvints) for #6.  
 [tlgreg](https://github.com/tlgreg) for #11.
 
 ## v1.1.1
