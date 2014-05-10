@@ -140,11 +140,11 @@ class VerifyUserProvider implements UserProviderInterface
     public function createModel()
     {
         $class = '\\'.ltrim($this->model, '\\');
+        $object = new $class;
 
-        if ( is_a( $class, '\Illuminate\Support\Facades\Facade', TRUE ) ) {
-            $object = $class::getFacadeRoot();
-        } else {
-            $object = new $class;
+        if ( is_a( $object, '\Illuminate\Support\Facades\Facade' ) )
+        {
+            $object = $object->getFacadeRoot();
         }
 
         return $object;
