@@ -6,6 +6,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends BaseModel implements UserInterface, RemindableInterface
 {
+    use \SoftDeletingTrait;
+
     /**
      * The table associated with the model.
      *
@@ -19,6 +21,13 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      * @var array
      */
     protected $hidden = ['password'];
+
+    /**
+     * Dates
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -35,13 +44,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      * @var object
      */
     protected $to_check_cache;
-
-    /**
-     * Soft delete
-     *
-     * @var boolean
-     */
-    protected $softDelete = true;
 
     /**
      * Roles
