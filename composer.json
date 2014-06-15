@@ -12,7 +12,7 @@
     "keywords": ["laravel", "auth", "permissions", "roles", "verify"],
     "homepage": "http://docs.toddish.co.uk/verify-l4/",
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.4.0"
     },
     "autoload": {
         "classmap": [
