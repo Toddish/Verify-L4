@@ -15,7 +15,7 @@ class Permission extends BaseModel
      *
      * @var array
      */
-    protected $fillable = array('name', 'description');
+    protected $fillable = ['name', 'description'];
 
     /**
      * Roles

@@ -6,6 +6,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends BaseModel implements UserInterface, RemindableInterface
 {
+    use \SoftDeletingTrait;
+
     /**
      * The table associated with the model.
      *
@@ -18,14 +20,21 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      *
      * @var array
      */
-    protected $hidden = array('password');
+    protected $hidden = ['password'];
+
+    /**
+     * Dates
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = array('username', 'password', 'salt', 'email', 'verified', 'deleted_at', 'disabled');
+    protected $fillable = ['username', 'password', 'salt', 'email', 'verified', 'deleted_at', 'disabled'];
 
     /**
      * To check cache
@@ -35,13 +44,6 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      * @var object
      */
     protected $to_check_cache;
-
-    /**
-     * Soft delete
-     *
-     * @var boolean
-     */
-    protected $softDelete = true;
 
     /**
      * Roles
@@ -54,7 +56,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
                 'Toddish\Verify\Models\Role',
                 $this->prefix.'role_user'
             )
-            ->withTimestamps();;
+            ->withTimestamps();
     }
 
     /**
@@ -110,7 +112,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function is($roles)
     {
         $roles = !is_array($roles)
-            ? array($roles)
+            ? [$roles]
             : $roles;
 
         $to_check = $this->getToCheck();
@@ -137,7 +139,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function can($permissions)
     {
         $permissions = !is_array($permissions)
-            ? array($permissions)
+            ? [$permissions]
             : $permissions;
 
         $to_check = $this->getToCheck();
@@ -180,7 +182,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
         $max = -1;
         $min = 100;
-        $levels = array();
+        $levels = [];
 
         foreach ($to_check->roles as $role)
         {
@@ -238,8 +240,8 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         if(empty($this->to_check_cache))
         {
         	$key = static::getKeyName();
-			
-            $to_check = static::with(array('roles', 'roles.permissions'))
+
+            $to_check = static::with(['roles', 'roles.permissions'])
                 ->where($key, '=', $this->attributes[$key])
                 ->first();
 

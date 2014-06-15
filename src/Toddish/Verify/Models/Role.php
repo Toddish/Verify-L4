@@ -15,7 +15,7 @@ class Role extends BaseModel
      *
      * @var array
      */
-    protected $fillable = array('name', 'description', 'level');
+    protected $fillable = ['name', 'description', 'level'];
 
     /**
      * To check cache
@@ -64,7 +64,7 @@ class Role extends BaseModel
     public function has($permissions)
     {
         $permissions = !is_array($permissions)
-            ? array($permissions)
+            ? [$permissions]
             : $permissions;
 
         $to_check = $this->getToCheck();

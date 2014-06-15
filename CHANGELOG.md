@@ -2,6 +2,13 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v3.0.0
++ Adds support for Laravel 4.2 by using soft delete trait
++ Some small tweaks for php 5.4
+
+### Credits
+[YOzaz](https://github.com/YOzaz) for #47.  
+
 ## v2.4.1
 + Removes thrid parameter for PHP <= 5.3.8
 
