@@ -54,7 +54,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
                 'Toddish\Verify\Models\Role',
                 $this->prefix.'role_user'
             )
-            ->withTimestamps();;
+            ->withTimestamps();
     }
 
     /**
@@ -238,7 +238,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         if(empty($this->to_check_cache))
         {
         	$key = static::getKeyName();
-			
+
             $to_check = static::with(array('roles', 'roles.permissions'))
                 ->where($key, '=', $this->attributes[$key])
                 ->first();
