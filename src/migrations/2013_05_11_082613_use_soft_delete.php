@@ -28,9 +28,9 @@ class UseSoftDelete extends Migration {
 
         $users = DB::table($prefix.'users')
             ->where('deleted', 1)
-            ->update(array(
+            ->update([
                 'deleted_at' => date('Y-m-d H:i:s')
-            ));
+            ]);
 
         Schema::table($prefix.'users', function($table)
         {
@@ -56,9 +56,9 @@ class UseSoftDelete extends Migration {
 
         $users = DB::table($prefix.'users')
             ->whereNotNull('deleted_at')
-            ->update(array(
+            ->update([
                 'deleted' => 1
-            ));
+            ]);
 
         Schema::table($prefix.'users', function($table)
         {

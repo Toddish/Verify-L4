@@ -1,7 +1,7 @@
 <?php
-return array(
+return [
 
-    'identified_by' => array('username', 'email'),
+    'identified_by' => ['username', 'email'],
 
     // The Super Admin role
     // (returns true for all permissions)
@@ -10,4 +10,4 @@ return array(
     // DB prefix for tables
     'prefix' => ''
 
-);
+];
