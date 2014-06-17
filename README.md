@@ -2,7 +2,9 @@
 
 ---
 
-A simple role/permission authentication package for Laravel 4
+A simple role/permission authentication package for Laravel 4.2.
+
+For Laravel < 4.2, use Verify 2.*.
 
 ---
 

@@ -4,13 +4,6 @@ namespace Toddish\Verify\Models;
 class Role extends BaseModel
 {
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'roles';
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array

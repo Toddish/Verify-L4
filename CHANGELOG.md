@@ -2,6 +2,12 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v3.0.1
++ Fixed Laravel 4.2 support
+
+### Credits
+[MartijnThomas](https://github.com/MartijnThomas).  
+
 ## v3.0.0
 + Adds support for Laravel 4.2 by using soft delete trait
 + Some small tweaks for php 5.4
