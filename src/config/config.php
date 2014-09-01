@@ -8,6 +8,13 @@ return [
     'super_admin' => 'Super Admin',
 
     // DB prefix for tables
-    'prefix' => ''
+    'prefix' => '',
+
+    // Define Models if you extend them.
+    'models' => [
+        'user' => 'Toddish\Verify\Models\User',
+        'role' => 'Toddish\Verify\Models\Role',
+        'permission' => 'Toddish\Verify\Models\Permission',
+    ]
 
 ];

@@ -1,7 +1,9 @@
 <?php
 namespace Toddish\Verify\Models;
 
-class BaseModel extends \Eloquent
+use Illuminate\Database\Eloquent\Model as Eloquent;
+
+class BaseModel extends Eloquent
 {
     /**
      * Table prefix
