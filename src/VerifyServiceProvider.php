@@ -11,8 +11,18 @@ class VerifyServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/verify.php' => config_path('verify.php')
+            __DIR__ . '/../config/verify.php' => config_path('verify.php')
         ], 'config');
+
+        $this->mergeConfigFrom(__DIR__ . '/../config/verify.php', 'verify');
+
+       $this->publishes([
+           __DIR__.'/../database/migrations/' => base_path('database/migrations')
+       ], 'migrations');
+
+       $this->publishes([
+           __DIR__.'/../database/seeds/' => base_path('database/seeds')
+       ], 'seeds');
 
         // $this->publishes([
         //     realpath(__DIR__.'/path/to/migrations') => $this->app->databasePath().'/migrations',
