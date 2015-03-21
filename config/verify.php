@@ -15,6 +15,10 @@ return [
 		'user' => 'Toddish\Verify\Models\User',
 		'role' => 'Toddish\Verify\Models\Role',
 		'permission' => 'Toddish\Verify\Models\Permission',
+	],
+
+	'crud_permissions' => [
+		'create_', 'read_', 'update_', 'delete_'
 	]
 
 ];

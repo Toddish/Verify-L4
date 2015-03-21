@@ -36,5 +36,12 @@ class VerifyServiceProvider extends ServiceProvider
 		});
 	}
 
-	public function register(){}
+	public function register()
+	{
+		$this->commands([
+			'Toddish\Verify\Commands\AddPermission',
+			'Toddish\Verify\Commands\AddCrudPermissions',
+			'Toddish\Verify\Commands\AddRole'
+		]);
+	}
 }
