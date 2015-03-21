@@ -1,5 +1,5 @@
 <?php
-namespace Toddish\Verify;
+namespace Toddish\Verify\Providers;
 
 use Illuminate\Contracts\Auth\UserProvider,
 	Illuminate\Contracts\Hashing\Hasher as HasherContract,
