@@ -1,30 +1,17 @@
 <?php
 namespace Toddish\Verify\Models;
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
-class BaseModel extends Eloquent
+class BaseModel extends Model
 {
-    /**
-     * Table prefix
-     *
-     * @var string
-     */
-    protected $prefix = '';
+	protected $prefix = '';
 
-    /**
-     * Create a new Eloquent model instance.
-     *
-     * @param  array  $attributes
-     * @return void
-     */
-    public function __construct(array $attributes = array())
-    {
-        parent::__construct($attributes);
+	public function __construct(array $attributes = array())
+	{
+		parent::__construct($attributes);
 
-        // Set the prefix
-        $this->prefix = \Config::get('verify.prefix', 'test');
-
-        $this->table = $this->prefix.$this->getTable();
-    }
+		$this->prefix = \Config::get('verify.prefix', '');
+		$this->table = $this->prefix . $this->getTable();
+	}
 }

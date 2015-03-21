@@ -2,46 +2,39 @@
 
 namespace Toddish\Verify;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Hashing\BcryptHasher;
-use Illuminate\Auth\Guard;
+use Illuminate\Support\ServiceProvider,
+	Illuminate\Auth\Guard;
 
 class VerifyServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
-        $this->publishes([
-            __DIR__ . '/../config/verify.php' => config_path('verify.php')
-        ], 'config');
+	public function boot()
+	{
+		$this->publishes([
+			__DIR__ . '/../config/verify.php' => config_path('verify.php')
+		], 'config');
 
-        $this->mergeConfigFrom(__DIR__ . '/../config/verify.php', 'verify');
+		$this->mergeConfigFrom(__DIR__ . '/../config/verify.php', 'verify');
 
-       $this->publishes([
-           __DIR__.'/../database/migrations/' => base_path('database/migrations')
-       ], 'migrations');
+		$this->publishes([
+			__DIR__.'/../database/migrations/' => base_path('database/migrations')
+		], 'migrations');
 
-       $this->publishes([
-           __DIR__.'/../database/seeds/' => base_path('database/seeds')
-       ], 'seeds');
+		$this->publishes([
+			__DIR__.'/../database/seeds/' => base_path('database/seeds')
+		], 'seeds');
 
-        // $this->publishes([
-        //     realpath(__DIR__.'/path/to/migrations') => $this->app->databasePath().'/migrations',
-        // ]);
+		\Auth::extend('verify', function($app)
+		{
+			return new Guard(
+				new VerifyUserProvider(
+					$app['hash'],
+					$app['config']['auth.model']
+				),
+				$app['session.store']
+			);
 
-        // \Auth::extend('verify', function()
-        // {
-        //     return new Guard(
-        //         new VerifyUserProvider(
-        //             new BcryptHasher,
-        //             \Config::get('auth.model')
-        //         ),
-        //         \App::make('session.store')
-        //     );
-        // });
-    }
+		});
+	}
 
-    public function register()
-    {
-
-    }
+	public function register(){}
 }

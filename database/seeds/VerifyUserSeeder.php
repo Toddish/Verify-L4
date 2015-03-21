@@ -4,13 +4,10 @@ use Illuminate\Database\Seeder;
 
 class VerifyUserSeeder extends Seeder
 {
-	public function __construct()
-	{
-		$this->prefix = Config::get('verify.prefix', '');
-	}
-
 	public function run()
 	{
+		$prefix = Config::get('verify.prefix', '');
+
 		$role_id = DB::table($prefix . 'roles')->insertGetId([
 			'name' => Config::get('verify.super_admin'),
 			'level' => 10,
