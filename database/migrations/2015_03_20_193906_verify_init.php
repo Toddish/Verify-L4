@@ -6,7 +6,7 @@ class VerifyInit extends Migration {
     public function __construct()
     {
         // Get the prefix
-        $this->prefix = Config::get('verify::prefix', '');
+        $this->prefix = Config::get('verify.prefix', '');
     }
 
     /**
