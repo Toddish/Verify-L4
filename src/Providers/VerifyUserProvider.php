@@ -50,16 +50,7 @@ class VerifyUserProvider implements UserProvider
 					->newQuery()
 					->where($identified_by, $credentials['identifier']);
 
-				foreach ($credentials as $key => $value)
-				{
-					if (
-						!str_contains($key, 'password') &&
-						!str_contains($key, 'identifier')
-					)
-					{
-						$query->where($key, $value);
-					}
-				}
+				$this->appendQueryConditions($query, $credentials, ['password', 'identifier']);
 
 				if ($query->count() !== 0)
 				{
@@ -70,17 +61,21 @@ class VerifyUserProvider implements UserProvider
 		else
 		{
 			$query = $this->createModel()->newQuery();
-
-			foreach ($credentials as $key => $value)
-			{
-				if (!str_contains($key, 'password'))
-				{
-					$query->where($key, $value);
-				}
-			}
+			$this->appendQueryConditions($query, $credentials);
 		}
 
 		return $query->first();
+	}
+
+	protected function appendQueryConditions($query, $conditions, $exclude = ['password'])
+	{
+		foreach ($conditions as $key => $value)
+		{
+			if (!in_array($key, $exclude))
+			{
+				$query->where($key, $value);
+			}
+		}
 	}
 
 	public function validateCredentials(UserContract $user, array $credentials)
