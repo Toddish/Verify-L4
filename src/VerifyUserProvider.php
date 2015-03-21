@@ -56,7 +56,7 @@ class VerifyUserProvider implements UserProviderInterface
         // Are we checking by identifier?
         if (array_key_exists('identifier', $credentials)) {
             // Grab each val to be identifed against
-            foreach (\Config::get('verify::identified_by') as $identified_by) {
+            foreach (\Config::get('verify.identified_by') as $identified_by) {
                 // Create a new query for each check
                 $query = $this->createModel()->newQuery();
                 // Start off the query with the first identified_by value

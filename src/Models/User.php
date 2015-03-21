@@ -49,7 +49,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function roles()
     {
         return $this->belongsToMany(
-                \Config::get('verify::models.role'),
+                \Config::get('verify.models.role'),
                 $this->prefix.'role_user'
             )
             ->withTimestamps();
@@ -113,7 +113,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         // Are we a super admin?
         foreach ($to_check->roles as $role)
         {
-            if ($role->name === \Config::get('verify::super_admin'))
+            if ($role->name === \Config::get('verify.super_admin'))
             {
                 return TRUE;
             }
