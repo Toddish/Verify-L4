@@ -2,8 +2,6 @@
 
 namespace Toddish\Verify;
 
-die('END');
-
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Auth\Guard;
