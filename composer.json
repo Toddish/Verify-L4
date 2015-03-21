@@ -6,22 +6,20 @@
         {
             "name": "Todd Francis",
             "email": "todd@toddish.co.uk",
-            "homepage": "http://toddish.co.uk"
+            "homepage": "http://toddish.co.uk",
+            "role": "Developer"
         }
     ],
     "keywords": ["laravel", "auth", "permissions", "roles", "verify"],
     "homepage": "http://docs.toddish.co.uk/verify-l4/",
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations",
-            "src/app/database/seeds/"
-        ],
-        "psr-0": {
-            "Toddish\\Verify": "src/"
+        "psr-4": {
+            "Toddish\\Verify\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
