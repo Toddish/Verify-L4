@@ -55,5 +55,4 @@ class AddPermission extends Command
 			['description', 'd', InputOption::VALUE_OPTIONAL, 'The description of the permission.', null]
 		];
 	}
-
 }

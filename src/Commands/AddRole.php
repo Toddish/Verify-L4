@@ -57,5 +57,4 @@ class AddRole extends Command
 			['description', 'd', InputOption::VALUE_OPTIONAL, 'The description of the role.', null]
 		];
 	}
-
 }
