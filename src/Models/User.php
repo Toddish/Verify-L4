@@ -1,11 +1,13 @@
 <?php
+
 namespace Toddish\Verify\Models;
 
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract,
 	Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract,
 	Illuminate\Database\Eloquent\SoftDeletes,
 	Illuminate\Auth\Authenticatable,
-	Illuminate\Auth\Passwords\CanResetPassword;
+	Illuminate\Auth\Passwords\CanResetPassword,
+	Illuminate\Support\Str;
 
 class User extends BaseModel implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -36,7 +38,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
 
 	public function setPasswordAttribute($password)
 	{
-		$salt = md5(\Str::random(64) . time());
+		$salt = md5(Str::random(64) . time());
 
 		$this->attributes['password'] = \Hash::make($salt . $password);
 		$this->attributes['salt'] = $salt;
