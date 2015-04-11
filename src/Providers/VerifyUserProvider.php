@@ -2,44 +2,12 @@
 namespace Toddish\Verify\Providers;
 
 use Illuminate\Contracts\Auth\UserProvider,
+	Illuminate\Auth\EloquentUserProvider,
 	Illuminate\Contracts\Hashing\Hasher as HasherContract,
 	Illuminate\Contracts\Auth\Authenticatable as UserContract;
 
-class VerifyUserProvider implements UserProvider
+class VerifyUserProvider extends EloquentUserProvider implements UserProvider
 {
-	protected $hasher;
-
-	protected $model;
-
-	public function __construct(HasherContract $hasher, $model)
-	{
-		$this->model = $model;
-		$this->hasher = $hasher;
-	}
-
-	public function retrieveByID($identifier)
-	{
-		return $this->createModel()
-			->newQuery()
-			->find($identifier);
-	}
-
-	public function retrieveByToken($identifier, $token)
-	{
-		$model = $this->createModel();
-
-		return $model->newQuery()
-			->where($model->getKeyName(), $identifier)
-			->where($model->getRememberTokenName(), $token)
-			->first();
-	}
-
-	public function updateRememberToken(UserContract $user, $token)
-	{
-		$user->setRememberToken($token);
-		$user->save();
-	}
-
 	public function retrieveByCredentials(array $credentials)
 	{
 		if (array_key_exists('identifier', $credentials))
@@ -84,11 +52,5 @@ class VerifyUserProvider implements UserProvider
 
 		return $this->hasher
 			->check($user->salt . $plain, $user->getAuthPassword());
-	}
-
-	public function createModel()
-	{
-		$class = '\\' . ltrim($this->model, '\\');
-		return new $class;
 	}
 }
