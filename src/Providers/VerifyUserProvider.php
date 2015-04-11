@@ -53,4 +53,14 @@ class VerifyUserProvider extends EloquentUserProvider implements UserProvider
 		return $this->hasher
 			->check($user->salt . $plain, $user->getAuthPassword());
 	}
+
+	public function isVerified(UserContract $user)
+	{
+		return $user->verified;
+	}
+
+	public function isDisabled(UserContract $user)
+	{
+		return $user->disabled;
+	}
 }

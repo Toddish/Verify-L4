@@ -3,7 +3,7 @@
 namespace Toddish\Verify\Providers;
 
 use Illuminate\Support\ServiceProvider,
-	Illuminate\Auth\Guard;
+	Toddish\Verify\Auth\VerifyGuard;
 
 class VerifyServiceProvider extends ServiceProvider
 {
@@ -25,7 +25,7 @@ class VerifyServiceProvider extends ServiceProvider
 
 		\Auth::extend('verify', function($app)
 		{
-			return new Guard(
+			return new VerifyGuard(
 				new VerifyUserProvider(
 					$app['hash'],
 					$app['config']['auth.model']
