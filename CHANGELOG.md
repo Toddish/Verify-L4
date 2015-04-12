@@ -2,6 +2,12 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v4.0.0
++ Adds Laravel 5 support
++ Removes Exceptions
++ Adds new ```Auth::verify()``` method
++ Adds new artisan commands
+
 ## v3.1.0
 + Adds config options for model classnames.
 + Adds namespace for Eloquent.
