@@ -3,10 +3,14 @@
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
 ## v4.0.0
-+ Adds Laravel 5 support
-+ Removes Exceptions
-+ Adds new ```Auth::verify()``` method
-+ Adds new artisan commands
++ Adds Laravel 5 support.
++ Removes Exceptions.
++ Adds new ```Auth::verify()``` method.
++ Adds new artisan commands.
+
+### Credits
+[christian-thomas](https://github.com/christian-thomas) for pull request.
+[Maxime-BHA](https://github.com/Maxime-BHA).
 
 ## v3.1.0
 + Adds config options for model classnames.
@@ -22,8 +26,8 @@ If there are no installation instructions provided, assume a ```composer update`
 [MartijnThomas](https://github.com/MartijnThomas).  
 
 ## v3.0.0
-+ Adds support for Laravel 4.2 by using soft delete trait
-+ Some small tweaks for php 5.4
++ Adds support for Laravel 4.2 by using soft delete trait.
++ Some small tweaks for php 5.4.
 
 ### Credits
 [YOzaz](https://github.com/YOzaz) for #47.  
@@ -36,9 +40,9 @@ If there are no installation instructions provided, assume a ```composer update`
 [YOzaz](https://github.com/YOzaz) for #45/pull request.  
 
 ## v2.4.0
-+ Adds != level check
-+ Adds remember token methods
-+ Adds facade support
++ Adds != level check.
++ Adds remember token methods.
++ Adds facade support.
 
 ### Credits
 A huge thanks to the following people!  
