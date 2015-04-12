@@ -6,8 +6,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract,
 	Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract,
 	Illuminate\Database\Eloquent\SoftDeletes,
 	Illuminate\Auth\Authenticatable,
-	Illuminate\Auth\Passwords\CanResetPassword,
-	Illuminate\Support\Str;
+	Illuminate\Auth\Passwords\CanResetPassword;
 
 class User extends BaseModel implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -30,7 +29,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
 	public function roles()
 	{
 		return $this->belongsToMany(
-				\Config::get('verify.models.role'),
+				config('verify.models.role'),
 				$this->prefix . 'role_user'
 			)
 			->withTimestamps();
@@ -38,7 +37,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
 
 	public function setPasswordAttribute($password)
 	{
-		$salt = md5(Str::random(64) . time());
+		$salt = md5(str_random(64) . time());
 
 		$this->attributes['password'] = \Hash::make($salt . $password);
 		$this->attributes['salt'] = $salt;
@@ -75,7 +74,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
 
 		foreach ($to_check->roles as $role)
 		{
-			if ($role->name === \Config::get('verify.super_admin'))
+			if ($role->name === config('verify.super_admin'))
 			{
 				return true;
 			}

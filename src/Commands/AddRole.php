@@ -20,7 +20,7 @@ class AddRole extends Command
 
 		$this->info('-- Adding new role - ' . $name . '.');
 
-		$role = \App::make(\Config::get('verify.models.role'))
+		$role = app(config('verify.models.role'))
 			->fill([
 				'name' => $name,
 				'level' => $level,
@@ -29,7 +29,7 @@ class AddRole extends Command
 
 		$role->save();
 
-		$permissions = \App::make(\Config::get('verify.models.permission'))
+		$permissions = app(config('verify.models.permission'))
 			->get();
 
 		foreach ($permissions as $permission)

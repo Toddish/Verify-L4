@@ -12,7 +12,7 @@ class VerifyTest extends TestCase
 		Artisan::call('migrate');
 
 		$super_admin_role = Toddish\Verify\Models\Role::create([
-			'name' => \Config::get('verify.super_admin'),
+			'name' => config('verify.super_admin'),
 			'level' => 10
 		]);
 

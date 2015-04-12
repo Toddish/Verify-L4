@@ -11,7 +11,7 @@ class Role extends BaseModel
 	public function users()
 	{
 		return $this->belongsToMany(
-				\Config::get('verify.models.user'),
+				config('verify.models.user'),
 				$this->prefix . 'role_user'
 			)
 		->withTimestamps();
@@ -20,7 +20,7 @@ class Role extends BaseModel
 	public function permissions()
 	{
 		return $this->belongsToMany(
-				\Config::get('verify.models.permission'),
+				config('verify.models.permission'),
 				$this->prefix . 'permission_role'
 			)
 		->withTimestamps();

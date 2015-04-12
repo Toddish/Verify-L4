@@ -19,7 +19,7 @@ class AddPermission extends Command
 
 		$this->info('-- Adding new permission - ' . $name . '.');
 
-		$permission = \App::make(\Config::get('verify.models.permission'))
+		$permission = app(config('verify.models.permission'))
 			->fill([
 				'name' => $name,
 				'description' => $description
@@ -27,8 +27,8 @@ class AddPermission extends Command
 
 		$permission->save();
 
-		$roles = \App::make(\Config::get('verify.models.role'))
-			->where('name', '!=', \Config::get('verify.super_admin'))
+		$roles = app(config('verify.models.role'))
+			->where('name', '!=', config('verify.super_admin'))
 			->get();
 
 		foreach ($roles as $role)

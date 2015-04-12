@@ -15,12 +15,12 @@ class AddCrudPermissions extends Command
 	{
 		$name = $this->argument('name');
 
-		$crud_permissions = \Config::get('verify.crud_permissions');
+		$crud_permissions = config('verify.crud_permissions');
 
 		$this->info('-- Adding new CRUD permissions for the ' . str_plural($name) . ' module.');
 
-		$roles = \App::make(\Config::get('verify.models.role'))
-			->where('name', '!=', \Config::get('verify.super_admin'))
+		$roles = app(config('verify.models.role'))
+			->where('name', '!=', config('verify.super_admin'))
 			->get();
 
 		foreach ($crud_permissions as $crud_permission)

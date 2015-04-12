@@ -11,7 +11,7 @@ class BaseModel extends Model
 	{
 		parent::__construct($attributes);
 
-		$this->prefix = \Config::get('verify.prefix', '');
+		$this->prefix = config('verify.prefix', '');
 		$this->table = $this->prefix . $this->getTable();
 	}
 }

@@ -12,7 +12,7 @@ class VerifyUserProvider extends EloquentUserProvider implements UserProvider
 	{
 		if (array_key_exists('identifier', $credentials))
 		{
-			foreach (\Config::get('verify.identified_by') as $identified_by)
+			foreach (config('verify.identified_by') as $identified_by)
 			{
 				$query = $this->createModel()
 					->newQuery()
