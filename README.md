@@ -1,10 +1,10 @@
-# Verify - Laravel 4 Auth Package
+# Verify - Laravel 5 Auth Package
 
 ---
 
 A simple role/permission authentication package for Laravel 5.
 
-For Laravel 4.2, use Verify 3.*.  
+For Laravel 4.2, use Verify 3.*.
 For Laravel < 4.2, use Verify 2.*.
 
 ---
@@ -164,11 +164,11 @@ switch (Auth::verify($credentials))
   case Verify::SUCCESS:
     // Successful log in
     break;
-  case Verify::INVALID_CREDENTIALS:  
-  case Verify::UNVERIFIED:  
+  case Verify::INVALID_CREDENTIALS:
+  case Verify::UNVERIFIED:
   case Verify::DISABLED:
     // Error!
-    break;  
+    break;
 }
 ```
 
