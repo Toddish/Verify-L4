@@ -1,9 +1,10 @@
-# Verify - Laravel 4 Auth Package
+# Verify - Laravel 5 Auth Package
 
 ---
 
-A simple role/permission authentication package for Laravel 4.2.
+A simple role/permission authentication package for Laravel 5.
 
+For Laravel 4.2, use Verify 3.*.
 For Laravel < 4.2, use Verify 2.*.
 
 ---
@@ -22,7 +23,7 @@ Add Verify to your composer.json file:
 
 ```
 "require": {
-	"toddish/verify": "3.*"
+	"toddish/verify": "~4.*"
 }
 ```
 
@@ -35,9 +36,9 @@ Now, run a composer update on the command line from the root of your project:
 Add the Verify Service Provider to your config in ``app/config/app.php``:
 
 ```php
-'providers' => array(
-	'Toddish\Verify\VerifyServiceProvider'
-),
+'providers' => [
+	'Toddish\Verify\Providers\VerifyServiceProvider
+],
 ```
 
 ### Change the driver
@@ -61,22 +62,24 @@ class User extends VerifyUser
 }
 ```
 
-### Publish the config
+### Publish the assets
 
 Run this on the command line from the root of your project:
 
-    php artisan config:publish toddish/verify
+	php artisan vendor:publish
 
-This will publish Verify's config to ``app/config/packages/toddish/verify/``.
+Or, if you want to publish parts of Verify individually:
 
-You may also want to change the ``'db_prefix'`` value if you want a prefix on Verify's database tables.
+    php artisan vendor:publish --provider="Toddish\Verify\Providers\VerifyServiceProvider" --tag="config"
+
+The available tags are **config**, **migrations** and **seeds**.
 
 ### Migration
 
 Now migrate the database tables for Verify. Run these on the command line from the root of your project:
 
-    php artisan migrate --package="toddish/verify"
-    php artisan db:seed --class=VerifyUserSeeder
+    php artisan migrate
+    php artisan db:seed
 
 You should now have all the tables imported, complete with a sample user, called **admin**, with a password of **password**.
 
@@ -104,10 +107,10 @@ The relationships are as follows:
 Relationships are handled via the Eloquent ORM, too:
 
 ```php
-$role->permissions()->sync(array($permission->id, $permission2->id));
+$role->permissions()->sync([$permission->id, $permission2->id]);
 ```
 
-More information on relationships can be found in the [Laravel 4 Eloquent docs](http://four.laravel.com/docs/eloquent).
+More information on relationships can be found in the [Laravel 5 Eloquent docs](http://laravel.com/docs/eloquent).
 
 ## Basic Examples
 
@@ -124,7 +127,7 @@ $role->level = 7;
 $role->save();
 
 // Assign the Permission to the Role
-$role->permissions()->sync(array($permission->id));
+$role->permissions()->sync([$permission->id]);
 
 // Create a new User
 $user = new Toddish\Verify\Models\User;
@@ -144,11 +147,33 @@ var_dump($user->can('delete_user')); // true
 var_dump($user->can('add_user')); // false
 
 var_dump($user->level(7)); // true
-var_dump($user->level(5, '&lt;=')); // false
+var_dump($user->level(5, '<=')); // false
+```
+
+## Auth::verify()
+
+Verify ships with a new login method, ```Auth::verify()```.
+
+This method takes the same arguments as ```Auth::attempt()```, with the main difference being it returns a string, and checks if the user is disabled or verified too.
+
+```php
+use Toddish\Verify\Helpers\Verify;
+
+switch (Auth::verify($credentials))
+{
+  case Verify::SUCCESS:
+    // Successful log in
+    break;
+  case Verify::INVALID_CREDENTIALS:
+  case Verify::UNVERIFIED:
+  case Verify::DISABLED:
+    // Error!
+    break;
+}
 ```
 
 ---
 
 ## Documentation
 
-For full documentation, have a look at [http://docs.toddish.co.uk/verify-l4](http://docs.toddish.co.uk/verify-l4).
+For full documentation, have a look at [http://docs.toddish.co.uk/verify](http://docs.toddish.co.uk/verify).
