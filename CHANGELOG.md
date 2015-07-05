@@ -2,11 +2,8 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
-## v4.0.0
-+ Adds Laravel 5 support.
-+ Removes Exceptions.
-+ Adds new ```Auth::verify()``` method.
-+ Adds new artisan commands.
+## v4.0.1
++ Fixes read me installation
 
 ### Credits
 [christian-thomas](https://github.com/christian-thomas) for pull request.

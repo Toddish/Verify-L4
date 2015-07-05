@@ -23,7 +23,7 @@ Add Verify to your composer.json file:
 
 ```
 "require": {
-	"toddish/verify": "~4.*"
+	"toddish/verify": "~4"
 }
 ```
 
