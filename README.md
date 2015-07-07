@@ -2,10 +2,11 @@
 
 ---
 
-A simple role/permission authentication package for Laravel 5.
+A simple role/permission authentication package for Laravel 5.1
 
-For Laravel 4.2, use Verify 3.*.
-For Laravel < 4.2, use Verify 2.*.
+For Laravel 5.0, use Verify 4.*.  
+For Laravel 4.2, use Verify 3.*.  
+For Laravel < 4.2, use Verify 2.*.  
 
 ---
 
@@ -23,7 +24,7 @@ Add Verify to your composer.json file:
 
 ```
 "require": {
-	"toddish/verify": "~4"
+	"toddish/verify": "~5"
 }
 ```
 

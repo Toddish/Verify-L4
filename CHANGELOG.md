@@ -2,6 +2,9 @@
 
 If there are no installation instructions provided, assume a ```composer update``` will suffice.
 
+## v5.0.0
++ Updates for Laravel 5.1 support
+
 ## v4.0.1
 + Fixes read me installation
 
